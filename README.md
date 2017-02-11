@@ -1,8 +1,8 @@
-# ESP826 DS18B20 Library
+# ESP8266 NO-SDK DS18B20 Library
 
 This library is here because I could not find a standalone library for this sensor; all that I found was embedded in other projects making them unusable with git submodule.
 
-The onewire library present in this repository is taken from [n0bel github repository](https://github.com/n0bel/esp8266-UdpTemp). It will soon go into another, separate repository so it may be used in other projects as well. 
+The onewire library present in this repository is taken from [n0bel's github repository](https://github.com/n0bel/esp8266-UdpTemp). It will soon go into another, separate repository so it may be used in other projects as well. 
 It will also suffer some changes to support communication on any pin (rather than the hardcoded 14 pin) and maybe better API.
 
 The DS18B20 library was written by me having as guideline the DallasTemperature library and other useful resources linked below (if you want to learn how the sensor works).
