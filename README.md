@@ -96,11 +96,11 @@ user_init()
 
 Limitations:
 
-    - Currently reads only on pin 14 and it is not configurable.
+- Currently reads only on pin 14 and it is not configurable.
 
 ToDO:
 
-    - Separate onewire library into another repository.
+- Separate onewire library into another repository.
 
 
 #### References (for didactic purposes):
