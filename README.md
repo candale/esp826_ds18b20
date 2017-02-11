@@ -10,7 +10,7 @@ The DS18B20 library was written by me having as guideline the DallasTemperature 
 
 ### API:
 
-```
+```c
 /**
 Init a DS18B20_Sensors data structure
 **/
@@ -49,7 +49,7 @@ uint8_t ds18b20_get_resolution(DS18B20_Sensors* sensors, int target);
 
 ### Usage
 
-```
+```c
 #include "ets_sys.h"
 #include "osapi.h"
 #include "gpio.h"
@@ -95,14 +95,20 @@ user_init()
 
 
 Limitations:
+
     - Currently reads only on pin 14 and it is not configurable.
 
 ToDO:
+
     - Separate onewire library into another repository.
 
 
-References (for didactic purposes):
+#### References (for didactic purposes):
+
 [1] http://www.homautomation.org/2015/11/17/ds18b20-how-to-change-resolution-9101112-bits/
+
 [2] https://tushev.org/articles/arduino/10/how-it-works-ds18b20-and-arduino
+
 [3] https://github.com/milesburton/Arduino-Temperature-Control-Library
+
 [4] http://datasheets.maximintegrated.com/en/ds/DS18B20.pdf
