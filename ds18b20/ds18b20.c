@@ -149,7 +149,7 @@ ds18b20_read(DS18B20_Sensors* sensors, uint8_t target) {
     onewire_write(DS18B20_CONVERT_T, sensors->parasite_mode);
 
     // Wait for it to process the data. May take up to 750 ms
-    os_delay_us(850 * 1000);
+    os_delay_us(790 * 1000);
     read_scratchpad(target_addr, data);
 
     uint32_t lsb = data[0];
