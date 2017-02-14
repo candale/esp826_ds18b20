@@ -45,6 +45,9 @@ ds18b20_init(DS18B20_Sensors* sensors);
 int ICACHE_FLASH_ATTR
 ds18b20_get_all(DS18B20_Sensors* sensors);
 
+void ICACHE_FLASH_ATTR
+ds18b20_request_temperatures(DS18B20_Sensors* sensors);
+
 float ICACHE_FLASH_ATTR
 ds18b20_read(DS18B20_Sensors*, uint8_t target);
 

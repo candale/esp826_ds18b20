@@ -24,6 +24,12 @@ Return the number of sensors found.
 int ds18b20_get_all(DS18B20_Sensors* sensors);
 
 /**
+Sent CONVERT command to all sensors on bus.
+Should be called before reading from one or more sensors.
+**/
+void ds18b20_request_temperatures(DS18B20_Sensors* sensors)
+
+/**
 Return temperature from sensor number `target`.
 **/
 float ds18b20_read(DS18B20_Sensors*, uint8_t target);
@@ -66,6 +72,7 @@ DS18B20_Sensors sensors;
 
 void ICACHE_FLASH_ATTR
 print_temp(void* arg) {
+    ds18b20_request_temperatures();
     float tmp = ds18b20_read(&sensors, 0);
     INFO("Temp %d\n", (int)(tmp * 10000));
 }

@@ -14,6 +14,7 @@ DS18B20_Sensors sensors;
 
 void ICACHE_FLASH_ATTR
 print_temp(void* arg) {
+    ds18b20_request_temperatures(&sensors);
     float tmp = ds18b20_read(&sensors, 0);
     INFO("Temp %d\n", (int)(tmp * 10000));
 }

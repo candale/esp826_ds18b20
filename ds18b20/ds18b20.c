@@ -129,12 +129,20 @@ ds18b20_get_resolution(DS18B20_Sensors* sensors, int target) {
 }
 
 
+void ICACHE_FLASH_ATTR
+ds18b20_request_temperatures(DS18B20_Sensors* sensors) {
+    // Tell sensor to prepare data
+    onewire_reset();
+    onewire_skip();
+    onewire_write(DS18B20_CONVERT_T, sensors->parasite_mode);
+
+    // Wait for it to process the data. May take up to 750 ms
+    os_delay_us(790 * 1000);
+}
+
+
 float ICACHE_FLASH_ATTR
 ds18b20_read(DS18B20_Sensors* sensors, uint8_t target) {
-    if(target >= sensors->count) {
-        return -1;
-    }
-
     uint8_t* target_addr = sensors->addresses + target * DS18B20_ADDR_SIZE;
     uint8_t data[12];
     uint8_t i;
@@ -143,13 +151,6 @@ ds18b20_read(DS18B20_Sensors* sensors, uint8_t target) {
         return -1;
     }
 
-    // Tell sensor to prepare data
-    onewire_reset();
-    onewire_select(target_addr);
-    onewire_write(DS18B20_CONVERT_T, sensors->parasite_mode);
-
-    // Wait for it to process the data. May take up to 750 ms
-    os_delay_us(790 * 1000);
     read_scratchpad(target_addr, data);
 
     uint32_t lsb = data[0];
