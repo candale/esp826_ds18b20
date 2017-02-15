@@ -27,7 +27,7 @@ int ds18b20_get_all(DS18B20_Sensors* sensors);
 Sent CONVERT command to all sensors on bus.
 Should be called before reading from one or more sensors.
 **/
-void ds18b20_request_temperatures(DS18B20_Sensors* sensors)
+void ds18b20_request_temperatures(DS18B20_Sensors* sensors);
 
 /**
 Return temperature from sensor number `target`.
