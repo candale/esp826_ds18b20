@@ -106,7 +106,7 @@ ds18b20_set_resolution(DS18B20_Sensors* sensors, uint8_t target, uint8_t resolut
     onewire_write(DS18B20_WRITE_SCRATCHPAD, sensors->parasite_mode);
     onewire_write(0x00, sensors->parasite_mode); // user byte 1
     onewire_write(0x00, sensors->parasite_mode); // user byte 2
-    onewire_init(resolution, sensors->parasite_mode);
+    onewire_write(resolution, sensors->parasite_mode);
     onewire_reset();
 
     // Persist resolution to EEPROM
